@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Carefeed</string>
+    <string name="Mood">Estat d\'ànim</string>
+    <string name="save">Desa</string>
+</resources>
