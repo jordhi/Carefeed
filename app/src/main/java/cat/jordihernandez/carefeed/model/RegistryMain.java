@@ -11,21 +11,21 @@ import io.realm.RealmObject;
 
 public class RegistryMain extends RealmObject {
     private Date data;
-    private float value;
+    private float mood;
 
     public void setData(Date data) {
         this.data = data;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setMood(float value) {
+        this.mood = value;
     }
 
     public Date getData() {
         return data;
     }
 
-    public float getValue() {
-        return value;
+    public float getMood() {
+        return mood;
     }
 }
