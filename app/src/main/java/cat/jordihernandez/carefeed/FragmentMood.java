@@ -63,24 +63,27 @@ public class FragmentMood extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-      /*  ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Log.i("DATA","ranting:" + rating );
 
-            }
-
-        });*/
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ratingMood = (RatingBar) container.findViewById(R.id.rbarMood);
+
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mood, container, false);
+        View view = inflater.inflate(R.layout.fragment_mood, container, false);
+        ratingMood = (RatingBar) view.findViewById(R.id.rbarMood);
+        ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Log.i("DATA","ranting:" + rating );
+
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
