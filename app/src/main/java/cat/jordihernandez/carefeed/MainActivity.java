@@ -3,21 +3,19 @@ package cat.jordihernandez.carefeed;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
 import android.widget.TextClock;
 import java.util.Date;
 
 import cat.jordihernandez.carefeed.model.RegistryMain;
 import io.realm.Realm;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentMood.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextClock txtClock;
 
     private Button btnSave;
@@ -40,10 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //instaciar administrador de fragments i de transactions
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragment = new FragmentMood();
+        fragment = FragmentMood.newInstance(null,null);
         fragmentTransaction.add(R.id.layout_fragments,fragment).commit();
-
-        //TODO Implementar OnFragmentInteractionListener
 
     }
 
@@ -72,8 +68,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }
