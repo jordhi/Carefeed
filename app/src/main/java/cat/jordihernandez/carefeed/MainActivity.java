@@ -3,6 +3,7 @@ package cat.jordihernandez.carefeed;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +17,7 @@ import java.util.Date;
 import cat.jordihernandez.carefeed.model.RegistryMain;
 import io.realm.Realm;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentMood.OnFragmentInteractionListener {
     private TextClock txtClock;
 
     private Button btnSave;
@@ -68,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 saveRating(ratingMood.getRating());
             }
         });*/
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

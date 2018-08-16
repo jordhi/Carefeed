@@ -62,21 +62,23 @@ public class FragmentMood extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        ratingMood = (RatingBar) getView().findViewById(R.id.rbarMood);
-        ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+
+      /*  ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 Log.i("DATA","ranting:" + rating );
 
             }
 
-        });
+        });*/
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ratingMood = (RatingBar) container.findViewById(R.id.rbarMood);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_mood, container, false);
     }
