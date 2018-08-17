@@ -3,13 +3,15 @@ package cat.jordihernandez.carefeed;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
+import android.widget.Toast;
+
 import java.util.Date;
 
 import cat.jordihernandez.carefeed.model.RegistryMain;
@@ -17,13 +19,14 @@ import cat.jordihernandez.carefeed.view.FragmentMood;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static int NUM_FRAGMENTS = 5;
     private TextClock txtClock;
-
     private Button btnSave;
     private LinearLayout layout_fragments;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private Fragment fragment;
+    private short count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnSave = (Button) findViewById(R.id.btnSave);
         btnSave.setOnClickListener(this);
+        btnSave.setText(getResources().getString(R.string.Next));
+        count = 1;
 
         //instaciar administrador de fragments i de transactions
         fragmentManager = getFragmentManager();
@@ -63,12 +68,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-      /*  btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveRating(ratingMood.getRating());
-            }
-        });*/
+
+        if(count < NUM_FRAGMENTS) {
+            count++;
+            if(count == NUM_FRAGMENTS)
+                btnSave.setText(getResources().getString(R.string.Save));
+        }else{
+            Toast.makeText(this, "Desat", Toast.LENGTH_LONG).show();
+            //saveRating(ratingMood.getRating());
+        }
+
 
     }
 

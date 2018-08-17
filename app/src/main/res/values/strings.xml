@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Carefeed</string>
     <string name="Mood">Mood</string>
-    <string name="Save">Save</string>
     <string name="Physical">Physical</string>
+    <string name="Save">Save</string>
+    <string name="Next">Next</string>
 </resources>
