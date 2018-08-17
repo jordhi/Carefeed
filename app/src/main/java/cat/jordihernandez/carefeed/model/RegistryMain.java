@@ -11,7 +11,15 @@ import io.realm.RealmObject;
 
 public class RegistryMain extends RealmObject {
     private Date data;
-    private float mood;
+    private float mood, physical;
+
+    public float getPhysical() {
+        return physical;
+    }
+
+    public void setPhysical(float physical) {
+        this.physical = physical;
+    }
 
     public void setData(Date data) {
         this.data = data;
