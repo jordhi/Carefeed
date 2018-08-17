@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">Carefeed</string>
     <string name="Mood">Estat d\'ànim</string>
-    <string name="save">Desa</string>
+    <string name="Save">Desa</string>
+    <string name="Physical">Estat físic</string>
 </resources>

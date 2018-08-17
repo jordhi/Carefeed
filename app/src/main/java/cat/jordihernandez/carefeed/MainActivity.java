@@ -13,6 +13,7 @@ import android.widget.TextClock;
 import java.util.Date;
 
 import cat.jordihernandez.carefeed.model.RegistryMain;
+import cat.jordihernandez.carefeed.view.FragmentMood;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,7 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragment = FragmentMood.newInstance(null,null);
-        fragmentTransaction.add(R.id.layout_fragments,fragment).commit();
+        fragmentTransaction.add(R.id.layout_fragments,fragment,"mood").commit();
+
+        //TODO aïllar la gestió dels fragmnents i carregar i descarregar-los
+        //TODO Gestió del button per carregar els fragments (next --> save)
 
     }
 
@@ -65,6 +69,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 saveRating(ratingMood.getRating());
             }
         });*/
+
+    }
+
+    /**
+     * Canviar al següent fragment
+     */
+    public void nextFragment() {
 
     }
 

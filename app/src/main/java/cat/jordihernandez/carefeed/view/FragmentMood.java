@@ -1,14 +1,16 @@
-package cat.jordihernandez.carefeed;
+package cat.jordihernandez.carefeed.view;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
+
+import cat.jordihernandez.carefeed.R;
 
 
 /**
@@ -75,6 +77,13 @@ public class FragmentMood extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mood, container, false);
         ratingMood = (RatingBar) view.findViewById(R.id.rbarMood);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -83,7 +92,6 @@ public class FragmentMood extends Fragment {
             }
         });
 
-        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
