@@ -16,10 +16,11 @@ import java.util.Date;
 
 import cat.jordihernandez.carefeed.model.RegistryMain;
 import cat.jordihernandez.carefeed.view.FragmentMood;
+import cat.jordihernandez.carefeed.view.FragmentPhysic;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static int NUM_FRAGMENTS = 5;
+    private static int NUM_FRAGMENTS = 2;
     private TextClock txtClock;
     private Button btnSave;
     private LinearLayout layout_fragments;
@@ -71,12 +72,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(count < NUM_FRAGMENTS) {
             count++;
+
             if(count == NUM_FRAGMENTS)
                 btnSave.setText(getResources().getString(R.string.Save));
         }else{
             Toast.makeText(this, "Desat", Toast.LENGTH_LONG).show();
+            btnSave.setText(getResources().getString(R.string.Next));
+            count = 1;
             //saveRating(ratingMood.getRating());
         }
+        nextFragment();
 
 
     }
@@ -85,6 +90,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Canviar al següent fragment
      */
     public void nextFragment() {
+        Class fragmentClass = null;
+        switch (count) {
+            case 1: fragmentClass = FragmentMood.class; break;
+            case 2: fragmentClass = FragmentPhysic.class; break;
+        }
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.layout_fragments,fragment)
+                .disallowAddToBackStack() //button back not return to the last fragment
+                .commit();
+
+
 
     }
 
