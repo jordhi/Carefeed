@@ -29,10 +29,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment fragment;
     private short count;
 
+    private RegistryMain register = new RegistryMain();
+
+    public RegistryMain getRegister() {
+        return register;
+    }
+
+    public void setRegister(RegistryMain register) {
+        this.register = register;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         layout_fragments = (LinearLayout) findViewById(R.id.layout_fragments);
         txtClock = (TextClock) findViewById(R.id.txtClock);
@@ -48,22 +60,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragment = FragmentMood.newInstance(null,null);
         fragmentTransaction.add(R.id.layout_fragments,fragment,"mood").commit();
 
-        //TODO aïllar la gestió dels fragmnents i carregar i descarregar-los
-        //TODO Gestió del button per carregar els fragments (next --> save)
-
+        //TODO desar totes les dades (Nomes desa mood i data)
+        //TODO crear primaykey per controlar les repeticions
+        //TODO avisar que ja s'han desat dades en el mateix dia
+        //TODO Afegir un menu configuració per decicidir quants registres es fan per dia
     }
 
     //Save rate value and date date
-    public void saveRating(float r) {
+    public void saveRating() {
         Date date = new Date();
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-        RegistryMain data = realm.createObject(RegistryMain.class);
+        RegistryMain data = realm.copyToRealm(register);
         data.setData(date);
-        data.setMood(r);
         realm.commitTransaction();
 
-        Log.i("DATA","saved:" + r + ":" + date);
+        Log.i("DATA","saved:" + register.getMood() + ":" + date);
     }
 
 
@@ -79,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Desat", Toast.LENGTH_LONG).show();
             btnSave.setText(getResources().getString(R.string.Next));
             count = 1;
-            //saveRating(ratingMood.getRating());
+            saveRating();
         }
         nextFragment();
 
