@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 
+import cat.jordihernandez.carefeed.MainActivity;
 import cat.jordihernandez.carefeed.R;
 
 /**
@@ -28,6 +29,8 @@ public class FragmentPhysic extends Fragment {
     private String mParam2;
 
     private RatingBar ratingPhysic;
+    private MainActivity myActivity;
+
 
 
     public FragmentPhysic() {
@@ -55,6 +58,8 @@ public class FragmentPhysic extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myActivity = (MainActivity) getActivity();
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,6 +82,7 @@ public class FragmentPhysic extends Fragment {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 Log.i("DATA","ranting:" + rating );
+                myActivity.getRegister().setPhysical(rating);
 
             }
         });
