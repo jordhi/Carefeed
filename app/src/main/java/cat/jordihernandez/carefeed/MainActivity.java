@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         layout_fragments = (LinearLayout) findViewById(R.id.layout_fragments);
         txtClock = (TextClock) findViewById(R.id.txtClock);
 
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSave.setText(getResources().getString(R.string.Next));
         count = 1;
 
-        //instaciar administrador de fragments i de transactions
+        //instanciar administrador de fragments i de transactions
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragment = FragmentMood.newInstance(null,null);
