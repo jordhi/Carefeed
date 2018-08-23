@@ -46,12 +46,11 @@
         android:orientation="horizontal"
         android:layout_weight="1">
 
-
         <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:text="@string/Save" />
 
     </LinearLayout>

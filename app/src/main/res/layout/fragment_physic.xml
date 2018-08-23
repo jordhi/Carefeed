@@ -11,22 +11,14 @@
         android:layout_height="match_parent">
 
         <TextView
+            style="@style/TextViewRegistry"
             android:id="@+id/txvPhysical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/Physical" />
 
         <RatingBar
             android:id="@+id/rbarPhysical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="0.5"
-            android:rating="0.5"
-            android:isIndicator="false"
-            style="@style/RatingBar"
-            android:layout_gravity="center"/>
+            style="@style/RatingBar" />
+
     </LinearLayout>
 
 </FrameLayout>
