@@ -3,9 +3,13 @@ package cat.jordihernandez.carefeed;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.Date;
 
+import cat.jordihernandez.carefeed.control.SettingsActivity;
 import cat.jordihernandez.carefeed.model.RegistryMain;
 import cat.jordihernandez.carefeed.view.FragmentMood;
 import cat.jordihernandez.carefeed.view.FragmentPhysic;
@@ -119,9 +124,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .disallowAddToBackStack() //button back not return to the last fragment
                 .commit();
 
-
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

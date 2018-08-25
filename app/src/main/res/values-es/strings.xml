@@ -5,4 +5,5 @@
     <string name="Physical">Estado físico</string>
     <string name="Save">Guarda</string>
     <string name="Next">Siguiente</string>
+    <string name="title_activity_settings">Preferencias</string>
 </resources>

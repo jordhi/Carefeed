@@ -5,4 +5,5 @@
     <string name="Physical">Estat físic</string>
     <string name="Save">Desa</string>
     <string name="Next">Següent</string>
+    <string name="title_activity_settings">Preferències</string>
 </resources>
