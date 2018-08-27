@@ -17,6 +17,7 @@ import android.widget.TextClock;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import cat.jordihernandez.carefeed.control.SettingsActivity;
 import cat.jordihernandez.carefeed.model.RegistryMain;
@@ -65,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //TODO al inciar el rating bar inciai amb 0.5 però si no es toca desa 0
         //TODO crear primaykey per controlar les repeticions
-        //TODO avisar que ja s'han desat dades en el mateix dia
-        //TODO Afegir un menu configuració per decicidir quants registres es fan per dia
+        //TODO comprovar i avisar que ja s'han desat dades en el mateix dia tenint en compte les preferences
+
     }
 
     //Save rate value and date date

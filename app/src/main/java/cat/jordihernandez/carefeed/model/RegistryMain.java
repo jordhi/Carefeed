@@ -1,6 +1,7 @@
 package cat.jordihernandez.carefeed.model;
 
 
+import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -11,6 +12,7 @@ import io.realm.RealmObject;
 
 public class RegistryMain extends RealmObject {
     private Date data;
+    private int year, month, day;
     private float mood, physical;
 
     public float getPhysical() {
@@ -22,7 +24,12 @@ public class RegistryMain extends RealmObject {
     }
 
     public void setData(Date data) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
         this.data = data;
+        this.year = cal.get(Calendar.YEAR);
+        this.month = cal.get(Calendar.MONTH);
+        this.day = cal.get(Calendar.DAY_OF_MONTH);
     }
 
     public void setMood(float value) {
@@ -36,4 +43,6 @@ public class RegistryMain extends RealmObject {
     public float getMood() {
         return mood;
     }
+
+
 }
