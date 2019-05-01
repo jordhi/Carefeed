@@ -68,15 +68,11 @@ public class FragmentMood extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mood, container, false);
         ratingMood = (RatingBar) view.findViewById(R.id.rbarMood);
@@ -87,8 +83,6 @@ public class FragmentMood extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         ratingMood.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {

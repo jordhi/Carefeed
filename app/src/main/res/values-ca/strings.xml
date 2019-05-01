@@ -7,4 +7,6 @@
     <string name="Next">Següent</string>
     <string name="title_activity_settings">Preferències</string>
     <string name="pref_header_general">General</string>
+    <string name="Charts">Estadístiques</string>
+    <string name="daysweek">Dies de la setmana</string>
 </resources>

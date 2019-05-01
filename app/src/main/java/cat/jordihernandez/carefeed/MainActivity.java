@@ -17,10 +17,10 @@ import android.widget.TextClock;
 import android.widget.Toast;
 
 import java.util.Date;
-import java.util.TimeZone;
 
 import cat.jordihernandez.carefeed.control.SettingsActivity;
 import cat.jordihernandez.carefeed.model.RegistryMain;
+import cat.jordihernandez.carefeed.view.ActivityChart;
 import cat.jordihernandez.carefeed.view.FragmentMood;
 import cat.jordihernandez.carefeed.view.FragmentPhysic;
 import io.realm.Realm;
@@ -139,8 +139,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
+                break;
+            case R.id.action_charts:
+                startActivity(new Intent(this, ActivityChart.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

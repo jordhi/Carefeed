@@ -4,6 +4,10 @@
         android:id="@+id/action_settings"
         android:title="@string/title_activity_settings">
     </item>
+    <item
+        android:id="@+id/action_charts"
+        android:title="@string/Charts">
+    </item>
 
 </menu>
 
